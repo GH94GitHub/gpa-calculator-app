@@ -1,0 +1,48 @@
+<!-------------------------
+; Title: Sign-in Component HTML template
+; Author: George Henderson
+; Date: 04 July 2021
+; Description: Contains HTML markup for the Sign-in component.
+;------------------------->
+
+
+<div fxLayout="column">
+
+  <div fxFlex class="signin-container mat-elevation-z8">
+
+    <mat-card>
+      <mat-card-title>Student Sign In</mat-card-title>
+      <mat-card-subtitle>You must enter a valid student Id to proceed</mat-card-subtitle>
+      <mat-card-content>
+
+        <div class="msg-error" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <mat-card>
+          <form [formGroup]="signinForm" (ngSubmit)="onSubmit(); signinForm.reset()">
+
+            <mat-card-content>
+              <mat-form-field fxFlex appearance="fill">
+                <mat-label id="lblStudentId" for="txtStudentId">Student Id</mat-label>
+                <input type="text" matInput id="txtStudentId" name="txtStudentId" formControlName="studentId" required>
+              </mat-form-field>
+            </mat-card-content>
+
+            <mat-card-actions>
+              <button type="submit" fxFlex mat-raised-button color="primary" [disabled]="!signinForm.valid">Submit</button>
+            </mat-card-actions>
+            <div *ngIf="form.studentId.errors && form.studentId.touched">
+              <div class="msg-error">
+                Student ID must be a numeric value.
+              </div>
+            </div>
+
+          </form>
+        </mat-card>
+
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+</div>

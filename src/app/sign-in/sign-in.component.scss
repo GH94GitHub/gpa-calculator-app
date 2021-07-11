@@ -1,0 +1,22 @@
+/*==========================
+; Title: Sign-in Component Styles
+; Author: George Henderson
+; Date: 10 July 2021
+; Description: Contains the styles for the Sign-in Component.
+;==========================*/
+
+.signin-container {
+  width: 35%;
+  margin: 15% auto;
+}
+
+.msg-error {
+  margin: 10px 0;
+  padding:12px;
+  color: #d80003;
+  background-color: #ffd2d2;
+}
+
+.signin-container mat-card-title, mat-card-subtitle {
+  text-align: center;
+}
